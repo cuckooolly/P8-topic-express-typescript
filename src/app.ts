@@ -2,10 +2,10 @@ import "dotenv/config";
 import express from "express";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import userController from "./controllers/userController.js";
+import userController from "./controllers/userController";
 
-import productController from "./controllers/productController.js";
-import reviewController from "./controllers/reviewController.js";
+import productController from "./controllers/productController";
+import reviewController from "./controllers/reviewController";
 import errorHandler from "./middlewares/errorHandler.js";
 import passport from "./config/passport.js";
 

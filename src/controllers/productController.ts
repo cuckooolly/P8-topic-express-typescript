@@ -1,18 +1,18 @@
-import express from "express";
+import express, {NextFunction, Request, Response} from "express";
 import auth from "../middlewares/auth.js";
 import productService from "../services/productService.js";
 
 const productController = express.Router();
 
-productController.post("/", auth.verifySessionLogin, async (req, res, next) => {
+productController.post("/", auth.verifySessionLogin, async (req: Request, res: Response, next: NextFunction) => {
   const createdProduct = await productService.create(req.body);
-  return res.json(createdProduct);
+  res.json(createdProduct);
 });
 
-productController.get("/:id", async (req, res) => {
+productController.get("/:id", async (req: Request<{id: string}>, res: Response, next: NextFunction) => {
   const { id } = req.params;
   const product = await productService.getById(id);
-  return res.json(product);
+  res.json(product);
 });
 
 export default productController;
