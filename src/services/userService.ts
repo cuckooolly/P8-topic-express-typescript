@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import userRepository from "../repositories/userRepository.js";
+import userRepository from "../repositories/userRepository";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import {
@@ -54,6 +54,10 @@ async function getUser(
     const user = await userRepository.findByEmail(email);
     if (!user) {
       const error = new AuthenticationError("존재하지 않는 이메일입니다.");
+      throw error;
+    }
+    if (!user.password) {
+      const error = new AuthenticationError("비밀번호가 설정되지 않았습니다.");
       throw error;
     }
     await verifyPassword(password, user.password);

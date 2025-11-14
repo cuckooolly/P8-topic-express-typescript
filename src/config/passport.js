@@ -1,6 +1,6 @@
 import passport from "passport";
 import localStrategy from "../middlewares/passport/localStrategy.js";
-import userRepository from "../repositories/userRepository.js";
+import userRepository from "../repositories/userRepository";
 import jwt from "../middlewares/passport/jwtStrategy.js";
 
 passport.use(localStrategy);

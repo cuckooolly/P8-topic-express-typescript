@@ -13,7 +13,14 @@ productController.post(
     res: Response,
     next: NextFunction,
   ) => {
-    const createdProduct = await productService.create(req.body);
+    const productData: Omit<Product, "id"> = {
+      name: req.body.name,
+      price: req.body.price,
+      description: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    const createdProduct = await productService.create(productData);
     res.json(createdProduct);
   },
 );

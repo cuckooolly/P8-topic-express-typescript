@@ -5,7 +5,7 @@ async function getById(id: Product["id"]) {
   return await productRepository.getById(id);
 }
 
-async function create(product: Pick<Product, "name" | "price">) {
+async function create(product: Omit<Product, "id">) {
   return await productRepository.save(product);
 }
 
