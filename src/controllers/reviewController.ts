@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 import passport from "../config/passport.js";
 import reviewService from "../services/reviewService";
-import auth from "../middlewares/auth.js";
+import auth from "../middlewares/auth";
 import { Review } from "@prisma/client";
 
 const reviewController = express.Router();

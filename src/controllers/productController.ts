@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
-import auth from "../middlewares/auth.js";
+import auth from "../middlewares/auth";
 import productService from "../services/productService";
 import { Product } from "@prisma/client";
 
