@@ -1,0 +1,39 @@
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "name": "test",
+  "password": "test"
+}
+
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "password": "test"
+}
+
+###
+POST http://localhost:3000/session-login
+Content-Type: application/json
+
+{
+  "email": "test1@test.com",
+  "password": "test"
+}
+
+###
+POST http://localhost:3000/token/refresh
+Cookie: refreshToken={token}
+
+###
+GET http://localhost:3000/auth/google
+
+###
+GET http://localhost:3000/auth/google/callback
+
+
